@@ -1,0 +1,22 @@
+.card {
+	width: 200px;
+	height: auto;
+	border: 1px solid #000;
+	background-color: white;
+	color: #000;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+.menu-list {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.btn-link {
+	background-color: blue;
+	color: white;
+	padding: 8px 16px;
+}
