@@ -1,6 +1,7 @@
 import "./menuList.css";
 import menus from "../const/menus";
 import { NavLink } from "react-router";
+import Card from "../components/Card.jsx";
 
 function MenuList() {
 	return (
@@ -17,25 +18,22 @@ function MenuList() {
 			</div>
 			<div class="menu-list">
 				{menus.map((item) => (
-					<div class="card">
-						<p>Name: {item.name}</p>
-						<p>Price: {item.price} </p>
-						<p>Category: {item.category} </p>
-						<p>Description: {item.description} </p>
-						<NavLink className={"btn-link"} to={`/menu/${item.id}`}>
-							Detail
-						</NavLink>
-						<NavLink
-							className={"btn-link"}
-							to={`/menu/update/${item.id}`}
-							style={{
-								marginLeft: "10px",
-							}}
-						>
-							Update
-						</NavLink>
-						<br />
-					</div>
+					<Card
+						name={item.name}
+						price={item.price}
+						category={item.category}
+						description={item.description}
+						id={item.id}
+					/>
+				))}
+				{menus.map((item) => (
+					<Card
+						name={item.name}
+						price={item.price}
+						category={item.category}
+						description={item.description}
+						id={item.id}
+					/>
 				))}
 			</div>
 		</>
