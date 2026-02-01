@@ -2,7 +2,7 @@ import Button from "./Button.jsx";
 
 const Card = (props) => {
 	// props
-	const { name, price, category, description, id } = props;
+	const { name, price, category, description, id, handleDelete } = props;
 
 	return (
 		<div class="card">
@@ -15,6 +15,8 @@ const Card = (props) => {
 			<br />
 			<Button url={`/menu/update/${id}`} label="Update" />
 			<br />
+			<br />
+			<button onClick={handleDelete}>delete</button>
 		</div>
 	);
 };
