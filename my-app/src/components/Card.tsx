@@ -1,11 +1,21 @@
-import Button from "./Button.jsx";
+import type { FC, MouseEventHandler } from "react";
+import Button from "./Button.tsx";
 
-const Card = (props) => {
+interface ICardProps {
+	name: string;
+	price: string;
+	category: string;
+	description: string;
+	id: string;
+	handleDelete: MouseEventHandler<HTMLButtonElement>;
+}
+
+const Card: FC<ICardProps> = (props) => {
 	// props
 	const { name, price, category, description, id, handleDelete } = props;
 
 	return (
-		<div class="card">
+		<div className="card">
 			<p>Name: {name}</p>
 			<p>Price: {price} </p>
 			<p>Category: {category} </p>

@@ -1,7 +1,7 @@
 import "./menuList.css";
 // import menus from "../const/menus";
 import { NavLink } from "react-router";
-import Card from "../components/Card.jsx";
+import Card from "../components/Card.tsx";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -9,12 +9,20 @@ import axios from "axios";
 
 // delete menu api https://6968be9069178471522b6774.mockapi.io/api/v1/menu/:id
 
-function MenuList() {
-	const [loading, setLoading] = useState(true);
-	const [isError, setIsError] = useState(false);
-	const [data, setData] = useState([]);
+interface IData {
+	id: string;
+	name: string;
+	price: string;
+	category: string;
+	description: string;
+}
 
-	const deleteMenu = async (id) => {
+function MenuList() {
+	const [loading, setLoading] = useState<boolean>(true);
+	const [isError, setIsError] = useState<boolean>(false);
+	const [data, setData] = useState<IData[]>([]);
+
+	const deleteMenu = async (id: string) => {
 		setLoading(true);
 		await axios
 			.delete(
@@ -67,7 +75,7 @@ function MenuList() {
 					Create New Menu
 				</NavLink>
 			</div>
-			<div class="menu-list">
+			<div className="menu-list">
 				{loading ? (
 					<h1>Loading...</h1>
 				) : (
