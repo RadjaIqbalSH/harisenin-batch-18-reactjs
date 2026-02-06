@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": "vite build",
+		"build": "tsc -b && vite build",
 		"lint": "eslint .",
 		"preview": "vite preview"
 	},
@@ -18,6 +18,7 @@
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.39.1",
+		"@types/node": "^25.2.1",
 		"@types/react": "^19.2.5",
 		"@types/react-dom": "^19.2.3",
 		"@vitejs/plugin-react": "^5.1.1",
@@ -27,5 +28,6 @@
 		"globals": "^16.5.0",
 		"typescript": "^5.9.3",
 		"vite": "^7.2.4"
-	}
+	},
+	"packageManager": "yarn@1.22.22+sha256.c17d3797fb9a9115bf375e31bfd30058cac6bc9c3b8807a3d8cb2094794b51ca"
 }
