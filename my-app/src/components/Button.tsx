@@ -31,26 +31,26 @@ import type { IButtonProps } from "../typings/button";
  *
  */
 
-type TOption = "satu" | string | "tiga";
+// type TOption = "satu" | string | "tiga";
 
-const options: any = "empat";
+// const options: any = "empat";
 
-interface IResponseApi {
-	meta: {
-		status: string;
-	};
-	error_msg: string | [];
-}
+// interface IResponseApi {
+// 	meta: {
+// 		status: string;
+// 	};
+// 	error_msg: string | [];
+// }
 
-interface IResponseApiProduct extends IResponseApi {
-	data: {
-		name: string;
-	};
-}
+// interface IResponseApiProduct extends IResponseApi {
+// 	data: {
+// 		name: string;
+// 	};
+// }
 
 // tipe data array
 
-const exampleArray: string[] = ["satu", "dua"];
+// const exampleArray: string[] = ["satu", "dua"];
 
 // Array of Object
 /**
@@ -61,36 +61,36 @@ const exampleArray: string[] = ["satu", "dua"];
  * ]
  */
 
-export interface IArrayObject {
-	name: string;
-}
+// export interface IArrayObject {
+// 	name: string;
+// }
 
-const arrayObject: IArrayObject[] = [
-	{
-		name: "",
-	},
-];
+// const arrayObject: IArrayObject[] = [
+// 	{
+// 		name: "",
+// 	},
+// ];
 
 // type TTree = {
 // 	name: string;
 // 	age: number;
 // }
-interface ITree2 {
-	age: number;
-}
+// interface ITree2 {
+// 	age: number;
+// }
 
-interface ITree extends ITree2 {
-	name: string;
-}
+// interface ITree extends ITree2 {
+// 	name: string;
+// }
 
-const tree: ITree = {
-	name: "Jhon",
-	age: 54,
-};
+// const tree: ITree = {
+// 	name: "Jhon",
+// 	age: 54,
+// };
 
-const tree2: string[] = ["jhon", "s"];
-const tree3: (string | number)[] = ["jhon", 10];
-const tree5: [string, boolean, number] = ["jhon", false, 10];
+// const tree2: string[] = ["jhon", "s"];
+// const tree3: (string | number)[] = ["jhon", 10];
+// const tree5: [string, boolean, number] = ["jhon", false, 10];
 
 // ---------------
 
