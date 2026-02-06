@@ -1,0 +1,11 @@
+.btn-link {
+	background-color: blue;
+	color: white;
+	padding: 8px 16px;
+}
+
+.btn-link-dark {
+	background-color: black;
+	color: white;
+	padding: 8px 16px;
+}

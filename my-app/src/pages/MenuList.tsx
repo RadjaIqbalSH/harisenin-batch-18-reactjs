@@ -1,0 +1,99 @@
+import "./menuList.css";
+// import menus from "../const/menus";
+import { NavLink } from "react-router";
+import Card from "../components/Card.tsx";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+// menu list api https://6968be9069178471522b6774.mockapi.io/api/v1/menu
+
+// delete menu api https://6968be9069178471522b6774.mockapi.io/api/v1/menu/:id
+
+interface IData {
+	id: string;
+	name: string;
+	price: string;
+	category: string;
+	description: string;
+}
+
+function MenuList() {
+	const [loading, setLoading] = useState<boolean>(true);
+	const [isError, setIsError] = useState<boolean>(false);
+	const [data, setData] = useState<IData[]>([]);
+
+	const deleteMenu = async (id: string) => {
+		setLoading(true);
+		await axios
+			.delete(
+				`https://6968be9069178471522b6774.mockapi.io/api/v1/menu/${id} `
+			)
+			.then(() => {
+				axios
+					.get(
+						"https://6968be9069178471522b6774.mockapi.io/api/v1/menu"
+					)
+					.then((response) => {
+						// handle success
+						setData(response.data);
+					})
+					.catch(() => {
+						// handle error
+					})
+					.finally(() => {
+						setLoading(false);
+					});
+			});
+	};
+
+	useEffect(() => {
+		// logic fetch menu
+		axios
+			.get("https://6968be9069178471522b6774.mockapi.io/api/v1/menu")
+			.then((response) => {
+				// handle success
+				setData(response.data);
+			})
+			.catch(() => {
+				// handle error
+				setIsError(true);
+			})
+			.finally(() => {
+				setLoading(false);
+			});
+	}, []);
+
+	return (
+		<>
+			<div
+				style={{
+					marginTop: "20px",
+					marginBottom: "20px",
+				}}
+			>
+				<NavLink className="btn-link" to={"/menu/create"}>
+					Create New Menu
+				</NavLink>
+			</div>
+			<div className="menu-list">
+				{loading ? (
+					<h1>Loading...</h1>
+				) : (
+					data.map((item) => (
+						<Card
+							name={item.name}
+							price={item.price}
+							category={item.category}
+							description={item.description}
+							id={item.id}
+							handleDelete={() => deleteMenu(item.id)}
+						/>
+					))
+				)}
+				{isError && <h1>Something went wrong!</h1>}
+			</div>
+		</>
+	);
+}
+
+export default MenuList;
